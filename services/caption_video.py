@@ -33,6 +33,9 @@ logger = logging.getLogger(__name__)
 # Define the path to the fonts directory
 FONTS_DIR = '/usr/share/fonts/custom'
 
+# <<< INSERT HERE: create the folder if it doesn't exist >>>
+os.makedirs(FONTS_DIR, exist_ok=True)
+
 # Create the FONT_PATHS dictionary by reading the fonts directory
 FONT_PATHS = {}
 for font_file in os.listdir(FONTS_DIR):
@@ -43,7 +46,7 @@ for font_file in os.listdir(FONTS_DIR):
 
 # Create a list of acceptable font names
 ACCEPTABLE_FONTS = list(FONT_PATHS.keys())
-#logger.info(f"Acceptable font names: {ACCEPTABLE_FONTS}")
+# logger.info(f"Acceptable font names: {ACCEPTABLE_FONTS}")
 
 # Match font files with fontconfig names
 def match_fonts():
