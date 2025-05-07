@@ -52,7 +52,7 @@ def get_metadata(filename, metadata_requests, job_id):
         thumbnail_command = [
             'ffmpeg',
             '-i', filename,
-            '-vf', 'select=eq(n\,0)',
+            '-vf', 'select=eq(n\\,0)',
             '-vframes', '1',
             thumbnail_filename
         ]
